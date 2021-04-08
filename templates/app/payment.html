@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'app/base.html' %}
+{% load static %}
+<!-- Title of Page -->
+{% block title %} Payment {% endblock %}
+<!-- Head Bootstrap link -->
+{% block head %}
+
+{% endblock %}
+<!-- Define Body Here -->
+{% block body %}
+    <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Subscription Details</h4>
+                                <div class="table-responsive">
+{#                                {% if orderitem %}#}
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+
+                                                <th>PRODUCT</th>
+                                                <th>PRICE</th>
+                                                <th>Booking Date</th>
+                                                <th>TOTAL</th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+{#                                        {% for orderitem in orderitem %}#}
+                                            <tr>
+                                                <td>{{ subscription.conference_hall }}</td>
+                                                <td>{{ subscription.conference_hall.price }}</td>
+                                                <td><span class="badge badge-primary px-2">{{ subscription.booking_date_for}} Day</span></td>
+                                                <td>{{subscription.conference_hall.price}}</td>
+                                                <td><a href="/cancel" class="btn mb-1 btn-danger float-right">Cancel</a></td>
+
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<div class="row">
+                    <div class="col-12 m-b-30" align="center">
+                        <h4 class="d-inline">Complite Your Payment Through Scan QRCode (OR) UPI ID</h4>
+                        <div align="center" >
+                            <div class="col-md-6 col-lg-3" >
+                                <div class="card" align="center">
+                                    <div class="card-header bg-white">
+                                        <h5 class="card-title">{{ bank.get.name}}</h5>
+                                    </div>
+                                    <img class="img-fluid" src="{{bank.get.qrcodeURL}}" alt="">
+{#                                    <div class="card-body">#}
+{#                                        <p class="card-text">This is a wider card with supporting text and below as a natural lead-in to the additional content. This content is a little bit longer.</p>#}
+{#                                    </div>#}
+                                    <div class="card-footer">
+                                        <p class="card-text d-inline"><small class="text-muted">{{ bank.get.upiid }}</small>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Upload your payment ScreenShot</h4>
+                                <div class="basic-form">
+                                    <form method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="form-group" >
+                                            <input type="file" name="payment_screenshot" class="form-control-file">
+                                            <br>
+
+
+                                            <input type="submit" class="btn mb-1 btn-success" value="Upload">
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                        </div>
+                    </div>
+
+
+<form method="post" enctype="multipart/form-data">
+
+
+
+</form>
+
+
+{% endblock %}
+
+<!-- Bottom Bootstrap link -->
+{% block bottom %}
+
+{% endblock %}
+

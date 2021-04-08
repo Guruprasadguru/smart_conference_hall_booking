@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'app/base.html' %}
+{% load static %}
+<!-- Title of Page -->
+{% block title %} Payment Detail {% endblock %}
+<!-- Head Bootstrap link -->
+{% block head %}
+
+{% endblock %}
+<!-- Define Body Here -->
+{% block body %}
+    <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Payment Details</h4>
+                                <div class="table-responsive">
+                                {% if detail %}
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+
+                                                <th>CONFERENCE HALL TYPE</th>
+                                                <th>RESERVED FOR</th>
+                                                <th>PRICE</th>
+                                                <th>TRANSACTION ID</th>
+                                                <th>TOTAL PRICE</th>
+                                                <th>PAYMENT STATUS</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for detail in detail %}
+                                            <tr>
+                                                <th>{{ detail.Conference_hall }}</th>
+                                                <td><span class="badge badge-primary px-2">{{ detail.booking_date_for|date}} Days</span></td>
+                                                <td>{{detail.total}}</td>
+                                                <td class="color-primary">{{detail.transaction_id}}</td>
+                                                <td>{{ detail.total }}</td>
+                                                <td><span class="label gradient-1 rounded">{{detail.status}}</span></td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                {% else %}
+                                    <h2>No Payment History Found</h2>
+                                {% endif %}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+</div>
+
+
+{% endblock %}
+
+<!-- Bottom Bootstrap link -->
+{% block bottom %}
+
+{% endblock %}

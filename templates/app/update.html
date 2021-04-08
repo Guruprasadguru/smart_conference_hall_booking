@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+{% extends 'app/base.html' %}
+{% load static %}
+<!-- Title of Page -->
+{% block title %} Update {% endblock %}
+<!-- Head Bootstrap link -->
+{% block head %}
+
+{% endblock %}
+<!-- Define Body Here -->
+{% block body %}
+    <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-validation">
+                                    <form class="form-valide" action="#" method="post">
+                                        {% csrf_token %}
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-username">Branch Name <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+{#                                                {{ form.branch }}#}
+                                                <input type="text" class="form-control" id="val-username" name="branch" placeholder={{ form.branch }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-email">Address <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+{#                                                {{ form.address }}#}
+                                                <input type="text" class="form-control" id="val-email" name="address" placeholder={{ form.address }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-password">Phone Number <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+{#                                                {{ form.phone }}#}
+                                                <input type="number" class="form-control" id="val-password" name="phone" placeholder= {{ form.phone }}
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <button type="submit" class="btn btn-primary">Update</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+{% endblock %}
+
+<!-- Bottom Bootstrap link -->
+{% block bottom %}
+
+{% endblock %}

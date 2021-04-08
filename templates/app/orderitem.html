@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'app/base.html' %}
+{% load static %}
+<!-- Title of Page -->
+{% block title %} Order {% endblock %}
+<!-- Head Bootstrap link -->
+{% block head %}
+
+{% endblock %}
+<!-- Define Body Here -->
+{% block body %}
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+
+
+            <div class="col-12 m-b-30">
+                        <h4 class="d-inline">Book Your Conference Hall Here</h4>
+                        <p></p>
+                        <div class="row m-b-30">
+                            <div class="col-lg-6">
+
+                                <div class="card border-primary">
+                                    <img class="img-fluid" src="{{Conference_hall.imageURL}}" alt="">
+                                    <div class="card-body">
+
+                                        <h5 class="card-title">{{Conference_hall.name}}</h5>
+{#                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>#}
+
+                                    </div>
+{#                                    <hr class="my-2">#}
+                                    <div class="card-footer ">
+                                        <h5 class="float-lg-left">&#8377; {{Conference_hall.price}}</h5>
+                                    </div>
+                                    <form method="post">
+                                        {% csrf_token %}
+                                    <div class="card-footer ">
+                                        <h5 class="float-lg-left">{{form.as_p}}</h5>
+
+                                        {% for message in messages %}
+					                <p style="color: #ec0707" id="messages",>{{message}}</p>
+				                        {% endfor %}
+
+
+                                        <button type="submit" class="btn mb-1 btn-primary float-right">Book Now</button>
+                                    </div>
+                                    </form>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+<!-- Bottom Bootstrap link -->
+{% block bottom %}
+
+{% endblock %}

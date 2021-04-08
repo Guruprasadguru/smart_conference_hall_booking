@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'app/base.html' %}
+{% load static %}
+<!-- Title of Page -->
+{% block title %} Subscription {% endblock %}
+<!-- Head Bootstrap link -->
+{% block head %}
+
+{% endblock %}
+<!-- Define Body Here -->
+{% block body %}
+    <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">My Booking Details</h4>
+                                <div class="table-responsive">
+                                {% if orderitem %}
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>USER NAME</th>
+                                                <th>CONFERENCE HALL TYPE</th>
+                                                <th>RESERVED FOR</th>
+                                                <th>BOOKING DATE</th>
+                                                <th>TRANSACTION ID</th>
+                                                <th>PAYMENT STATUS</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for orderitem in orderitem %}
+                                            <tr>
+                                                <th>{{ orderitem.user.first_name }}</th>
+                                                <td>{{ orderitem.conference_hall }}</td>
+                                                <td><span class="badge badge-primary px-2">{{ orderitem.booking_date_for|date}} Day</span>
+                                                </td>
+                                                <td>{{orderitem.date_of_booking}}</td>
+                                                <td class="color-primary">{{orderitem.transaction_id}}</td>
+                                                <td><span class="label gradient-1 rounded">{{orderitem.payment_status}}</span></td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                {% else %}
+                                    <h2>No Bookings Found</h2>
+                                {% endif %}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+</div>
+{% endblock %}
+
+<!-- Bottom Bootstrap link -->
+{% block bottom %}
+
+{% endblock %}
